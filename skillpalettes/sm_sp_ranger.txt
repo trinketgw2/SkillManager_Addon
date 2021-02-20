@@ -1174,6 +1174,16 @@ set.skills_luacode = {
       activationtime = 0.5,
       icon = 'Swoop',
    },
+   [42797] = {
+      slot = GW2.SKILLBARSLOT.Slot_13,
+      activationtime = 0.75,
+      icon = 'Charging Bite',
+   },
+   [42797] = {
+      slot = GW2.SKILLBARSLOT.Slot_14,
+      activationtime = 0.5,
+      icon = 'Fear',
+   },
    [42042] = {
       slot = GW2.SKILLBARSLOT.Slot_14,
       activationtime = 0.5,
