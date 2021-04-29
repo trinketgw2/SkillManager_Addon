@@ -401,12 +401,12 @@ function bombkit:Deactivate(context)
 end
 SkillManager:AddSkillPalette(bombkit)
 
-local bombkit = SkillManager:CreateSkillPalette('Mortar Kit')
-bombkit.uid = "Engi_MortarKit"
-bombkit.profession = GW2.CHARCLASS.Engineer
-bombkit.icon = "Mortar Kit"
-bombkit.id = 30800
-bombkit.skills_luacode = {
+local mortarkit = SkillManager:CreateSkillPalette('Mortar Kit')
+mortarkit.uid = "Engi_MortarKit"
+mortarkit.profession = GW2.CHARCLASS.Engineer
+mortarkit.icon = "Mortar Kit"
+mortarkit.id = 30800
+mortarkit.skills_luacode = {
     [30371] = {
         slot = GW2.SKILLBARSLOT.Slot_1,
         activationtime = 0.5,
@@ -433,20 +433,20 @@ bombkit.skills_luacode = {
         icon = 'Elixir Shell',
     },
 }
-function bombkit:IsActive(context)
+function mortarkit:IsActive(context)
     return context.player.alive and context.skillbar ~= nil and context.skillbar[GW2.SKILLBARSLOT.Slot_10] ~= nil and context.skillbar[GW2.SKILLBARSLOT.Slot_10].id == 29905
 end
-function bombkit:CanActivate(context)
+function mortarkit:CanActivate(context)
     return context.player.alive and (context.player.transformid == 0 or context.player.transformid == 5) and context.skillbar ~= nil and context.skillbar[GW2.SKILLBARSLOT.Slot_10] ~= nil and context.skillbar[GW2.SKILLBARSLOT.Slot_10].id == 30800
 end
-function bombkit:Activate(context)
+function mortarkit:Activate(context)
     Player:CastSpell(GW2.SKILLBARSLOT.Slot_10)
 end
-function bombkit:Deactivate(context)
+function mortarkit:Deactivate(context)
     Player:SwapWeaponSet()
     return true
 end
-SkillManager:AddSkillPalette(bombkit)
+SkillManager:AddSkillPalette(mortarkit)
 
 local elixiergun = SkillManager:CreateSkillPalette('ElixierGun')
 elixiergun.uid = "Engi_ElixierGun"
@@ -989,6 +989,11 @@ engineer.skills_luacode = {
         icon = 'Elixir H',
     },
     [5978] = {
+        slot = GW2.SKILLBARSLOT.Slot_13,
+        activationtime = 0.5,
+        icon = 'Toss Elixir H',
+    },
+    [6118] = {
         slot = GW2.SKILLBARSLOT.Slot_13,
         activationtime = 0.5,
         icon = 'Toss Elixir H',
@@ -1556,35 +1561,70 @@ engineer.skills_luacode = {
         activationtime = 0.25,
         icon = 'Bomb Kit',
     },
-    [30800] = {
+    [6111] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Grenade Kit',
+    },
+    [30800] = {
+        slot = GW2.SKILLBARSLOT.Slot_10,
         activationtime = 0.25,
         icon = 'Elite Mortar Kit',
+    },
+    [29905] = {
+        slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Mortar Kit',
     },
     [5802] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
         activationtime = 0.25,
         icon = 'Med Kit',
     },
+    [6109] = {
+        slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Med Kit',
+    },
     [5904] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
         activationtime = 0.25,
         icon = 'Tool Kit',
+    },
+    [6113] = {
+        slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Tool Kit',
     },
     [5927] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
         activationtime = 0.25,
         icon = 'Flamethrower',
     },
+    [6114] = {
+        slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Flamethrower',
+    },
     [5933] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
         activationtime = 0.25,
         icon = 'Elixir Gun',
     },
+    [6115] = {
+        slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Elixir Gun',
+    },
     [5805] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
         activationtime = 0.25,
         icon = 'Grenade Kit',
+    },
+    [6110] = {
+        slot = GW2.SKILLBARSLOT.Slot_7,
+        activationtime = 0,
+        icon = 'Stow Grenade Kit',
     },
     [6020] = {
         slot = GW2.SKILLBARSLOT.Slot_7,
